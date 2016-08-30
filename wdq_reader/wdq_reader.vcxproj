@@ -110,10 +110,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EndianHelper.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="wdq_reader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wdq_reader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="wdq_reader.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
