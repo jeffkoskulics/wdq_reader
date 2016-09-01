@@ -1,6 +1,6 @@
 #include <cstdio>
 #pragma once
-
+#include "EndianHelper.h"
 
 class wdq_reader
 {
@@ -22,3 +22,4 @@ private:
 	void setHeaderElement1();
 };
 
+ 

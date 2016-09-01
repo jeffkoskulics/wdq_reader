@@ -17,7 +17,7 @@ wdq_reader::~wdq_reader()
 void wdq_reader::initiallize()
 {
 	//Attempt to open file
-	myFILE = fopen(myFilename, "r");
+	//auto myFILE = fopen(myFilename, "r");
 
 	//Determine file size
 	fseek(myFILE, 0, SEEK_END);

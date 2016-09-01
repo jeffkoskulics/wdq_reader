@@ -24,9 +24,21 @@
     <ClInclude Include="EndianHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CODAS_header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wdq_reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CODAS_header.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestEndianHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
