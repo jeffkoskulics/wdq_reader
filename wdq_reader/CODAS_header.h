@@ -2,8 +2,33 @@
 #include "EndianHelper.h"
 #include <vector>
 #include <array>
+#include <map>
 
 class ChannelInfo;
+
+enum class Type {
+	Byte,
+	Double,
+	Integer,
+	Long,
+	UnsignedInteger,
+	UnsignedLong,
+};
+
+const std::map<Type, char> TypeSize{
+	std::pair<Type,char>(Type::Byte, 1),
+	std::pair<Type,char>(Type::Double, 4),
+	std::pair<Type,char>(Type::Integer, 2),
+	std::pair<Type,char>(Type::Long, 4),
+	std::pair<Type,char>(Type::UnsignedInteger, 2),
+	std::pair<Type,char>(Type::UnsignedLong,4),
+};
+
+struct FileHeaderElement {
+	char myElement;
+	char mySize;
+	Type myType;
+};
 
 class CODAS_header
 {

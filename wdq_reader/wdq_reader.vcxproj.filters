@@ -35,9 +35,6 @@
     <ClCompile Include="CODAS_header.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test_main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestEndianHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
