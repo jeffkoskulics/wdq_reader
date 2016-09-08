@@ -27,6 +27,9 @@
     <ClInclude Include="Serial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WaveformChannelInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wdq_reader.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TestCODASHeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveformChannelInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
