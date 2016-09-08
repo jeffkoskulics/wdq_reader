@@ -134,12 +134,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CODAS_header.h" />
-    <ClInclude Include="EndianHelper.h" />
+    <ClInclude Include="Serial.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="wdq_reader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CODAS_header.cpp" />
+    <ClCompile Include="TestCODASHeader.cpp" />
     <ClCompile Include="TestEndianHelper.cpp" />
     <ClCompile Include="wdq_reader.cpp" />
   </ItemGroup>

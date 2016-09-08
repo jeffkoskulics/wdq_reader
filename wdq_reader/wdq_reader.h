@@ -1,6 +1,6 @@
 #include <cstdio>
 #pragma once
-#include "EndianHelper.h"
+#include "Serial.h"
 
 class wdq_reader
 {
