@@ -60,7 +60,7 @@ namespace Serial {
 	template <class T>
 	void Primitive<T>::write(std::ostream& output) const {
 		T tBuffer = myValue;
-		if (ENDIAN_MISMATCH) matchEndian(tBuffer);
+		if (ENDIAN_MISMATCH) reverseEndian(tBuffer);
 		output.write(reinterpret_cast<char *>(&const_cast<T&>(tBuffer)), sizeof(T));
 	}
 

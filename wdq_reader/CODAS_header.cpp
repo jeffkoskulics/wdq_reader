@@ -1,6 +1,7 @@
 #include "CODAS_header.h"
 #include <cstdint>
-
+#include <string>
+#include <exception>
 
 
 CODAS_header::CODAS_header(std::istream& input)
@@ -27,6 +28,27 @@ CODAS_header::CODAS_header(std::istream& input)
 	{
 		myWaveformChannelInfos.push_back(readWaveformChannelInfo(input, i+1));
 	}
+
+	Serial::Primitive<uint16_t> Element5;
+	input.seekg(setStartingByteForElement(5));
+	input >> Element5;
+
+	LastByteOfElement[34] = Element5 - 3;
+	LastByteOfElement[35] = Element5 - 2;
+
+	Serial::Primitive<uint16_t> Element35;
+	input.seekg(setStartingByteForElement(35));
+	input >> Element35;
+
+
+	if (Element35 != 0x8001)
+	{
+		std::string error{ "Bad file - invalid element 35. Expected 0x8001 but read " };
+		error += std::to_string(Element35);
+		error += ".\n";
+		throw std::runtime_error(error.c_str());
+	}
+
 }
 
 
