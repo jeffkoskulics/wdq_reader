@@ -26,3 +26,5 @@ TEST(WaveformChannelInfo, readChannelInfo)
 	EXPECT_STREQ("Volt", c.getWaveformChannelInfo(2).getEngineeringUnits());
 
 }
+
+

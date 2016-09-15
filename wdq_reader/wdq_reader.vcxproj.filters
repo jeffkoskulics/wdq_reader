@@ -30,6 +30,9 @@
     <ClInclude Include="WaveformChannelInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CODAS_Reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wdq_reader.cpp">
@@ -45,6 +48,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WaveformChannelInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CODAS_Reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCODASReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

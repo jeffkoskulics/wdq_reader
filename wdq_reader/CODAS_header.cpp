@@ -9,7 +9,7 @@ CODAS_header::CODAS_header(std::istream& input)
 	input.seekg(setStartingByteForElement(1));
 	Serial::Primitive<uint16_t> Element1;
 	input >> Element1;
-	num_channels = Element1 & 0b11111;
+	myNumChannels = Element1 & 0b11111;
 	int sample_rate_divisor = (Element1 & 0b0111111111100000) >> 5;
 	
 	Serial::Primitive<uint32_t> Element6;
@@ -20,11 +20,11 @@ CODAS_header::CODAS_header(std::istream& input)
 	input.seekg(setStartingByteForElement(13));
 	input >> Element13;
 	
-	sample_rate = 1 / Element13 ;
-	num_samples = 1 + (((Element6 / (2 * num_channels)) - 1) / sample_rate_divisor);
+	mySampleRate = 1 / Element13 ;
+	myNumSamples = 1 + (((Element6 / (2 * myNumChannels)) - 1) / sample_rate_divisor);
 
-	myWaveformChannelInfos.reserve(num_channels);
-	for (int i = 0; i < num_channels; ++i)
+	myWaveformChannelInfos.reserve(myNumChannels);
+	for (int i = 0; i < myNumChannels; ++i)
 	{
 		myWaveformChannelInfos.push_back(readWaveformChannelInfo(input, i+1));
 	}
@@ -49,6 +49,21 @@ CODAS_header::CODAS_header(std::istream& input)
 		throw std::runtime_error(error.c_str());
 	}
 
+	myDataStart = input.tellg();
+
+	//Check that the file is at least as large as expected
+	input.seekg(0, input.end);
+	int fileLength = input.tellg();
+	int expectedMinFileSize = myNumSamples * myNumChannels * 2 + myDataStart;
+	if (fileLength < expectedMinFileSize) {
+		std::string error{ "Error - the file is smaller than expected.\nThe file size is: " };
+		error += std::to_string(fileLength);
+		error += "\nThe expected minimum file size is: ";
+		error += std::to_string(expectedMinFileSize);
+		error += "\n";
+		throw std::runtime_error(error);
+	}
+	
 }
 
 

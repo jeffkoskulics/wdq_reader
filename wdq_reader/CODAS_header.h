@@ -14,17 +14,17 @@ class CODAS_header
 public:
 	CODAS_header(std::istream& input);
 	~CODAS_header();
-	int get_num_channels() const { return num_channels; }
-	unsigned long int get_num_samples() const { return num_samples; }
-	double get_sample_rate () const { return sample_rate; }
-	int get_data_start() const { return data_start; }
+	int get_num_channels() const { return myNumChannels; }
+	unsigned long int get_num_samples() const { return myNumSamples; }
+	double get_sample_rate () const { return mySampleRate; }
+	int get_data_start() const { return myDataStart; }
 	WaveformChannelInfo getWaveformChannelInfo(int channel) const { return myWaveformChannelInfos.at(channel - 1); }
 
 private:
-	int num_channels;
-	unsigned long int num_samples;
-	double sample_rate;
-	int data_start;
+	int myNumChannels;
+	unsigned long int myNumSamples;
+	double mySampleRate;
+	int myDataStart;
 	std::vector<WaveformChannelInfo> myWaveformChannelInfos;
 	WaveformChannelInfo readWaveformChannelInfo(std::istream&, int channel);
 	int setStartingByteForElement(int index) const { return LastByteOfElement[index - 1] + 1; }
