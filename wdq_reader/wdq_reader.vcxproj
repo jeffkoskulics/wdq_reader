@@ -138,16 +138,14 @@
     <ClInclude Include="Serial.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="WaveformChannelInfo.h" />
-    <ClInclude Include="wdq_reader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CODAS_header.cpp" />
     <ClCompile Include="CODAS_Reader.cpp" />
     <ClCompile Include="TestCODASHeader.cpp" />
     <ClCompile Include="TestCODASReader.cpp" />
-    <ClCompile Include="TestEndianHelper.cpp" />
+    <ClCompile Include="TestSerial.cpp" />
     <ClCompile Include="WaveformChannelInfo.cpp" />
-    <ClCompile Include="wdq_reader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="wdq_reader.rc" />

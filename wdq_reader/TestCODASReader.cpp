@@ -26,15 +26,15 @@ TEST(num_samples, CODAS_Reader)
 TEST(get_some_samples, CODAS_Reader)
 {
 	const char* path = R"(..\..\wdq_reader\wdq_reader\TestData\Eastman 7 Test 1  18-July-2016.WDQ)";
-	std::ifstream input{ path };
-	ASSERT_TRUE(input.is_open());
 
-	CODAS_Reader cr{ input };
+	CODAS_Reader cr{ CODAS_Reader::create(path) };
+ 
 	auto num_channels = cr.GetNumChannels();
 	std::vector<int> samples;
-	samples.reserve(cr.GetNumSamples());
+	auto numSamples = cr.GetNumSamples();
+	samples.reserve(numSamples);
 
-	for (int i = 0; i < cr.GetNumSamples(); ++i)
+	for (int i = 0; i < numSamples; ++i)
 		samples.push_back(cr.GetSample(2, i));
 
 	EXPECT_EQ(73254, samples.size());

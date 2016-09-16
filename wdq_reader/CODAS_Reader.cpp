@@ -1,6 +1,12 @@
 #include "CODAS_Reader.h"
+#include <fstream>
 
-
+CODAS_Reader CODAS_Reader::create(const char* path)
+{
+	std::ifstream input_file{ path, std::ios::binary | std::ios::in };
+	if (!input_file.is_open()) throw std::runtime_error("Error - couldn't open file");
+	return std::move(CODAS_Reader{ input_file });
+}
 
 CODAS_Reader::CODAS_Reader(std::istream& input) :
 	myHeader(input), myStream(input)
@@ -34,7 +40,7 @@ float CODAS_Reader::GetOutput(int channel, int index)
 	int sample = this->GetSample(channel, index);
 	double offset = this->myHeader.getWaveformChannelInfo(channel).getCalibrationInterciptFactor();
 	double slope = this->myHeader.getWaveformChannelInfo(channel).getCalibrationScalingFactor();
-	return (sample * slope) + offset;
+	return static_cast<float>((sample * slope) + offset);
 }
 
 int CODAS_Reader::GetNumChannels() const 

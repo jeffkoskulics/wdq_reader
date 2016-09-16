@@ -49,11 +49,11 @@ CODAS_header::CODAS_header(std::istream& input)
 		throw std::runtime_error(error.c_str());
 	}
 
-	myDataStart = input.tellg();
+	myDataStart = static_cast<int>(input.tellg());
 
 	//Check that the file is at least as large as expected
 	input.seekg(0, input.end);
-	int fileLength = input.tellg();
+	int fileLength = static_cast<int>(input.tellg());
 	int expectedMinFileSize = myNumSamples * myNumChannels * 2 + myDataStart;
 	if (fileLength < expectedMinFileSize) {
 		std::string error{ "Error - the file is smaller than expected.\nThe file size is: " };

@@ -13,6 +13,7 @@ class CODAS_header
 {
 public:
 	CODAS_header(std::istream& input);
+	CODAS_header(CODAS_header&&) noexcept = default;
 	~CODAS_header();
 	int get_num_channels() const { return myNumChannels; }
 	unsigned long int get_num_samples() const { return myNumSamples; }

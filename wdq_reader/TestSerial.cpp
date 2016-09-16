@@ -3,10 +3,9 @@
 #include <iostream>
 #include <fstream>
 
-TEST(EndianHelper, IntelIsLittleEndian) {
-}
 
-TEST(EndianHelper, WDQ_FILE_INPUT) {
+
+TEST(Serial, WDQ_FILE_INPUT) {
 	const char* path = R"(..\..\wdq_reader\wdq_reader\TestData\Eastman 7 Test 1  18-July-2016.WDQ)";
 	std::ifstream input(path);
 	ASSERT_TRUE(input.is_open());
